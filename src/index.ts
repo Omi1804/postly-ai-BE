@@ -1,10 +1,14 @@
-const express = require("express");
-const colors = require("colors");
-const app = express();
-const PORT = process.env.PORT || 3000;
+import express from "express";
 
-app.listen(PORT, () => {
-  console.clear();
-  console.log(colors.green.bold("Welcome to the Express Server!"));
-  console.log(colors.blue.underline(`Server is running on port ${PORT}`));
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("AI LinkedIn Posting App Backend is running!");
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
